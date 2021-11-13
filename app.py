@@ -1,46 +1,301 @@
 from flask import Flask, render_template, request
-from helpers import find_house, user
+from helpers import q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15
 
 app: Flask = Flask(__name__)
-users: list[user] = []
-user_number: int = 0
 
 @app.route("/")
 def index():
     return render_template('index.html')
 
 
-@app.route('/quiz', methods=["GET", "POST"])
-def quiz():
+@app.route('/intro', methods=["GET", "POST"])
+def intro():
     if request.method == "POST":
         global users
         global user_number
 
         fname: str = request.form['fname']
-        lname: str = request.form['lname']
-        animal: str = request.form['animal']
+        begin: str = request.form['begin']
 
-        if fname == '' or lname == '':
-            return render_template("quiz.html")
+        if fname == '':
+            return render_template("intro.html")
 
-        house: str = find_house(animal)
-        new_user: user = user(user_number, fname, lname, house)
+        return render_template("one.html")
+    return render_template("questions/intro.html")
+
+
+@app.route('/one', methods=["GET", "POST"])
+def one():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['one']
+
+        new_user: user = user(user_number, fname, album)
         users.append(new_user)
 
         user_number += 1
 
-        return render_template("result.html", house=house)
-    return render_template("quiz.html")
+        question: str = q1(answer)
+
+        return render_template("questions/two.html", question=question)
+    return render_template("questions/one.html")
 
 
-@app.route('/all-results')
-def all_results():
-    return render_template('all-results.html', users=users)
+@app.route('/two', methods=["GET", "POST"])
+def two():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['two']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q2(answer)
+
+        return render_template("questions/three.html", question=question)
+    return render_template("questions/two.html")
 
 
-@app.route('/user<usernumber>')
-def display_user(usernumber: str):
-    return render_template('user.html', user=users[int(usernumber)])
+@app.route('/three', methods=["GET", "POST"])
+def three():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['three']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q3(answer)
+
+        return render_template("questions/four.html", question=question)
+    return render_template("questions/three.html")
+
+
+@app.route('/four', methods=["GET", "POST"])
+def four():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['four']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q4(answer)
+
+        return render_template("questions/five.html", question=question)
+    return render_template("questions/four.html")
+
+
+@app.route('/five', methods=["GET", "POST"])
+def five():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['five']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q5(answer)
+
+        return render_template("questions/six.html", question=question)
+    return render_template("questions/five.html")
+
+
+@app.route('/six', methods=["GET", "POST"])
+def six():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['six']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q6(answer)
+
+        return render_template("questions/seven.html", question=question)
+    return render_template("questions/six.html")
+
+
+@app.route('/seven', methods=["GET", "POST"])
+def seven():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['seven']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q7(answer)
+
+        return render_template("questions/eight.html", question=question)
+    return render_template("questions/seven.html")
+
+
+@app.route('/eight', methods=["GET", "POST"])
+def eight():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['eight']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q8(answer)
+
+        return render_template("questions/nine.html", question=question)
+    return render_template("questions/eight.html")
+
+
+@app.route('/nine', methods=["GET", "POST"])
+def nine():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['nine']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q9(answer)
+
+        return render_template("questions/ten.html", question=question)
+    return render_template("questions/nine.html")
+
+
+@app.route('/ten', methods=["GET", "POST"])
+def ten():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['ten']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q10(answer)
+
+        return render_template("questions/eleven.html", question=question)
+    return render_template("questions/ten.html")
+
+
+@app.route('/eleven', methods=["GET", "POST"])
+def eleven():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['eleven']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q11(answer)
+
+        return render_template("questions/twelve.html", question=question)
+    return render_template("questions/eleven.html")
+
+
+@app.route('/twelve', methods=["GET", "POST"])
+def twelve():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['twelve']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q12(answer)
+
+        return render_template("questions/thirteen.html", question=question)
+    return render_template("questions/twelve.html")
+
+
+@app.route('/thirteen', methods=["GET", "POST"])
+def thirteen():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['thirteen']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q13(answer)
+
+        return render_template("questions/fourteen.html", question=question)
+    return render_template("questions/thirteen.html")
+
+
+@app.route('/fourteen', methods=["GET", "POST"])
+def fourteen():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['fourteen']
+
+        new_user: user = user(user_number, fname, album)
+        users.append(new_user)
+
+        user_number += 1
+
+        question: str = q14(answer)
+
+        return render_template("questions/fifteen.html", question=question)
+    return render_template("questions/fourteen.html")
+
+
+@app.route('/fifteen', methods=["GET", "POST"])
+def fifteen():
+    if request.method == "POST":
+        global points
+
+        answer: str = request.form['fifteen']
+
+        question: str = q15(answer)
+
+        return render_template("result.html", question=question)
+    return render_template("questions/fifteen.html")
+
+
+
+@app.route('/result')
+def result():
+    if request.method == "POST":
+        album: str = all_results(result)
+        return render_template('index.html', album=album)
+    return render_template('result.html')
 
 
 if __name__ == '__main__':
