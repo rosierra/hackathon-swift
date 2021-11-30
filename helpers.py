@@ -167,48 +167,48 @@ def q15(answer: str) -> str:
         points += 3
 
 
-def all_results(result: int) -> str:
+def all_results() -> str:
     """Count up all the points for an album."""
     global points
     if points <= 15:
-        return cat_one
+        return cat_one()
     elif points in range(16, 30):
-        return cat_two
+        return cat_two()
     else:
-        return cat_three
+        return cat_three()
 
 
-def cat_one() -> None:
+def cat_one() -> str:
     """First three albums."""
     album: int = int(randint(1, 3))
     if album == 1:
-        print("You got 'Taylor Swift'! You're a classic! Good ol' country gal who loves love! <3 You do have a feisty side so don't let trouble into your life!")
+        return ("You got 'Taylor Swift'! You're a classic! Good ol' country gal who loves love! <3 You do have a feisty side so don't let trouble into your life!")
     if album == 2:
-        print("You got '1989'! HELLO PARTY ANIMAL!!! You are shaking what your mama gave you, and having a good time doing it. Keep on dreaming, beacuse they're all going to come true.")
+        return ("You got '1989'! HELLO PARTY ANIMAL!!! You are shaking what your mama gave you, and having a good time doing it. Keep on dreaming, beacuse they're all going to come true.")
     if album == 3:
-        print("You got 'Lover'! You met a British boy, love. And you couldn't be happier for it. You had to kiss a lot of frogs to get to your prince, but you know he's worth it. (And if you haven't met your British boy yet, don't worry, Harry Styles will be single again someday).")
+        return ("You got 'Lover'! You met a British boy, love. And you couldn't be happier for it. You had to kiss a lot of frogs to get to your prince, but you know he's worth it. (And if you haven't met your British boy yet, don't worry, Harry Styles will be single again someday).")
         
 
-def cat_two() -> None:
+def cat_two() -> str:
     """Second three albums."""
     album: int = int(randint(1, 3))
     if album == 1:
-        print("You got 'Fearless'! Well hello there popular! You're the friend who's always a bridesmaid, never a bride. You just can't seem to find the right one but everyone comes to you for advice!")
+        return ("You got 'Fearless'! Well hello there popular! You're the friend who's always a bridesmaid, never a bride. You just can't seem to find the right one but everyone comes to you for advice!")
     if album == 2:
-        print("You got 'Reputation'! You are the baddest out there! ;) Don't let anyone kill your vibe because you are the best that you can be. You fight fire with an even bigger fire and there's absolutely nothing wrong with that.")
+        return ("You got 'Reputation'! You are the baddest out there! ;) Don't let anyone kill your vibe because you are the best that you can be. You fight fire with an even bigger fire and there's absolutely nothing wrong with that.")
     if album == 3:
-        print("You got 'Evermore'! You're what they call a chronic daydreamer. Always thinking up your perfect day, perfect love, perfect crime. You aren't taking what the universe gives you anymore; you're throwing it right back and carving your own path.")
+        return ("You got 'Evermore'! You're what they call a chronic daydreamer. Always thinking up your perfect day, perfect love, perfect crime. You aren't taking what the universe gives you anymore; you're throwing it right back and carving your own path.")
 
 
-def cat_three() -> None: 
+def cat_three() -> str: 
     """Third three albums."""
     album: int = int(randint(1, 3))
     if album == 1:
-        print("You got 'Speak Now'! Uhhh... how are you really feeling right now...? Don't worry, heartbreak doesn't last forever. You're better on your own! Pick up your crown, QUEEN!!!!")
+        return ("You got 'Speak Now'! Uhhh... how are you really feeling right now...? Don't worry, heartbreak doesn't last forever. You're better on your own! Pick up your crown, QUEEN!!!!")
     if album == 2:
-        print("You got 'Red'! Now I don't want to assume you're going through a breakup... But you're always the one that's down for a good time even when you're sad! Don't forget to check in on yourself from time to time.")
+        return ("You got 'Red'! Now I don't want to assume you're going through a breakup... But you're always the one that's down for a good time even when you're sad! Don't forget to check in on yourself from time to time.")
     if album == 3:
-        print("You got 'Folklore'! How does it feel creating fictional scenarios in your mind 24/7? It's okay, don't worry! Most of us do this but ours will never be as clever. You're a modern day Shakespeare. Keep on writing!!!")
+        return ("You got 'Folklore'! How does it feel creating fictional scenarios in your mind 24/7? It's okay, don't worry! Most of us do this but ours will never be as clever. You're a modern day Shakespeare. Keep on writing!!!")
 
 
 

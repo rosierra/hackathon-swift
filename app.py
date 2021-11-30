@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from helpers import q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15
+from helpers import *
 
 app: Flask = Flask(__name__)
 
@@ -31,11 +31,6 @@ def one():
 
         answer: str = request.form['one']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q1(answer)
 
         return render_template("questions/two.html", question=question)
@@ -48,11 +43,6 @@ def two():
         global points
 
         answer: str = request.form['two']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q2(answer)
 
@@ -67,11 +57,6 @@ def three():
 
         answer: str = request.form['three']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q3(answer)
 
         return render_template("questions/four.html", question=question)
@@ -84,11 +69,6 @@ def four():
         global points
 
         answer: str = request.form['four']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q4(answer)
 
@@ -103,11 +83,6 @@ def five():
 
         answer: str = request.form['five']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q5(answer)
 
         return render_template("questions/six.html", question=question)
@@ -120,11 +95,6 @@ def six():
         global points
 
         answer: str = request.form['six']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q6(answer)
 
@@ -139,11 +109,6 @@ def seven():
 
         answer: str = request.form['seven']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q7(answer)
 
         return render_template("questions/eight.html", question=question)
@@ -156,11 +121,6 @@ def eight():
         global points
 
         answer: str = request.form['eight']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q8(answer)
 
@@ -175,11 +135,6 @@ def nine():
 
         answer: str = request.form['nine']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q9(answer)
 
         return render_template("questions/ten.html", question=question)
@@ -192,11 +147,6 @@ def ten():
         global points
 
         answer: str = request.form['ten']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q10(answer)
 
@@ -211,11 +161,6 @@ def eleven():
 
         answer: str = request.form['eleven']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q11(answer)
 
         return render_template("questions/twelve.html", question=question)
@@ -228,11 +173,6 @@ def twelve():
         global points
 
         answer: str = request.form['twelve']
-
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
 
         question: str = q12(answer)
 
@@ -247,11 +187,6 @@ def thirteen():
 
         answer: str = request.form['thirteen']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q13(answer)
 
         return render_template("questions/fourteen.html", question=question)
@@ -265,11 +200,6 @@ def fourteen():
 
         answer: str = request.form['fourteen']
 
-        new_user: user = user(user_number, fname, album)
-        users.append(new_user)
-
-        user_number += 1
-
         question: str = q14(answer)
 
         return render_template("questions/fifteen.html", question=question)
@@ -282,20 +212,20 @@ def fifteen():
         global points
 
         answer: str = request.form['fifteen']
+        album: str = all_results()
 
         question: str = q15(answer)
 
-        return render_template("result.html", question=question)
+        return render_template("result.html", album=album)
     return render_template("questions/fifteen.html")
 
 
-
-@app.route('/result')
+@app.route('/result', methods=["GET", "POST"])
 def result():
+    album: str = all_results()
     if request.method == "POST":
-        album: str = all_results(result)
-        return render_template('index.html', album=album)
-    return render_template('result.html')
+        return render_template('index.html')
+    return render_template('result.html', album=album)
 
 
 if __name__ == '__main__':
