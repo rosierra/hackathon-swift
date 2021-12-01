@@ -19,13 +19,14 @@
       }
 
   body {
-    width: 30%;
+    width: 25%;
     text-align: center;
-    margin-left: auto ;
-    margin-right: auto ;
-    margin-top: auto;
+    margin-left: center ;
+    margin-right: center ;
+    margin-top: center;
+    margin-bottom: center;
     position: absolute;
-    top: 200px; 
+    top: 250px;
     color: #8f1d1d;
     text-shadow: 1px 1px #f1eeee;
     font-size: 1.25em;
@@ -38,16 +39,3 @@
   }
 
   #one { width: 250px; }
-
-  .button {
-    border: none;
-    width: 100%;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
