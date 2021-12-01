@@ -209,15 +209,3 @@ def cat_three() -> str:
         return ("You got 'Red'! Now I don't want to assume you're going through a breakup... But you're always the one that's down for a good time even when you're sad! Don't forget to check in on yourself from time to time.")
     if album == 3:
         return ("You got 'Folklore'! How does it feel creating fictional scenarios in your mind 24/7? It's okay, don't worry! Most of us do this but ours will never be as clever. You're a modern day Shakespeare. Keep on writing!!!")
-
-
-
-
-
-# #class user:
-#     id: int
-#     first_name: str
-    
-#     def __init__(self, id: int, fname: str):
-#         self.id = id
-#         self.first_name = fname
